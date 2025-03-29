@@ -1,4 +1,3 @@
-import { Geist, Geist_Mono } from 'next/font/google';
 import { Noto_Sans } from 'next/font/google';
 import './globals.css';
 import NavBar from '../components/NavBar';
@@ -8,15 +7,6 @@ const notoSans = Noto_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '700'],
 });
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
 
 export const metadata = {
   title: 'Create Next App',
@@ -27,6 +17,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
+        cz-shortcut-listen="true"
         className={`${notoSans.className} antialiased min-h-screen px-4 lg:px-6 bg-linear-to-b from-[hsl(215,74%,95%)] to-[hsl(185,48%,95%)] dark:bg-linear-to-b dark:from-[#040816] dark:to-[#09153e]`}
       >
         <ThemeProvider

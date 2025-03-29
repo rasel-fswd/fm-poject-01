@@ -6,9 +6,15 @@ import logoLight from '../public/logo-light.svg';
 import sunIcon from '../public/icon-sun.svg';
 import moonIcon from '../public/icon-moon.svg';
 import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 function NavBar() {
+  const [mounted, setMounted] = useState(false);
   const { setTheme, resolvedTheme } = useTheme();
+
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) return null;
 
   function Button() {
     if (resolvedTheme === 'dark')

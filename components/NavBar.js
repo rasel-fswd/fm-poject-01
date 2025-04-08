@@ -7,6 +7,7 @@ import sunIcon from '../public/icon-sun.svg';
 import moonIcon from '../public/icon-moon.svg';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 function NavBar() {
   const [mounted, setMounted] = useState(false);
@@ -43,7 +44,7 @@ function NavBar() {
 
   return (
     <nav className="bg-neutral-50 dark:bg-neutral-800 flex justify-between items-center p-4 rounded-2xl">
-      <a href="#">
+      <Link href="/">
         {resolvedTheme === 'dark' ? (
           <Image src={logoLight} alt="Brand Logo" />
         ) : resolvedTheme === 'light' ? (
@@ -51,7 +52,7 @@ function NavBar() {
         ) : (
           ''
         )}
-      </a>
+      </Link>
       <Button />
     </nav>
   );

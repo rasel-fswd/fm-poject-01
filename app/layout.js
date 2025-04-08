@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
-          <header className=" max-w-7xl mx-auto mt-8 mb-14">
+          <header className=" max-w-7xl mx-auto pt-8 mb-14">
             <NavBar />
           </header>
           <main className=" max-w-7xl mx-auto mb-8">{children}</main>

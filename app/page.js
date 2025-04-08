@@ -1,11 +1,13 @@
 import ExtensionFiltler from '../components/ExtensionFiltler';
 import ExtensionList from '../components/ExtensionList';
 
-export default function Home() {
+export default async function Home({ searchParams }) {
+  const filterParams = await searchParams;
+  const filter = filterParams.list ?? 'all';
   return (
     <>
-      <ExtensionFiltler />
-      <ExtensionList />
+      <ExtensionFiltler activeFilter={filter} />
+      <ExtensionList filter={filter} />
     </>
   );
 }

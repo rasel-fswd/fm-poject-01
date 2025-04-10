@@ -13,7 +13,7 @@ function ExtensionFiltler({ activeFilter }) {
   }
   return (
     <div className="flex flex-col items-center gap-6 md:flex-row justify-between">
-      <h2 className=" text-3xl font-semibold text-neutral-900 dark:text-neutral-50">
+      <h2 className=" text-3xl font-semibold text-[var(--text-muted)]">
         Extension Lists
       </h2>
       <div className=" flex gap-3 text-neutral-900 dark:text-neutral-100">
@@ -51,9 +51,9 @@ function Button({ children, filter, handleFilter, activeFilter }) {
       onClick={() => handleFilter(filter)}
       className={`${
         filter === activeFilter
-          ? 'bg-acent-700 dark:bg-acent-400 dark:hover:bg-acent-500 border-acent-500 hover:bg-acent-500 text-neutral-50'
-          : 'bg-neutral-50 hover:bg-neutral-100 hover:text-neutral-600 dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:hover:text-neutral-200 border-neutral-200 dark:border-neutral-600 hover:border-neutral-100 dark:hover:border-neutral-600'
-      } py-2 px-5 rounded-4xl cursor-pointer transition-colors border shadow`}
+          ? 'bg-[var(--color-acent-400)] text-neutral-100 font-semibold hover:bg-[var(--color-acent-500)]'
+          : 'bg-[var(--color-neutral-100)] text-[var(--text-muted)] hover:bg-neutral-200 hover:text-[var(--text-dim)] focus:bg-neutral-300'
+      } py-2 px-5 rounded-4xl cursor-pointer transition-colors shadow focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-100 focus:ring-[var(--color-acent-400)] outline-none`}
     >
       {children}
     </button>

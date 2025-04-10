@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme {
+/* @theme {
   --color-neutral-900: hsl(227, 75%, 14%);
   --color-neutral-800: hsl(226, 25%, 17%);
   --color-neutral-700: hsl(225, 23%, 24%);
@@ -14,13 +14,43 @@
   --color-acent-400: hsl(3, 86%, 64%);
   --color-acent-500: hsl(3, 71%, 56%);
   --color-acent-700: hsl(3, 77%, 44%);
+} */
+
+@layer theme {
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-from: hsl(215, 74%, 95%);
+      --bg-to: hsl(185, 48%, 95%);
+      --bg-card: hsl(200, 60%, 99%);
+      --text-dark: hsl(226, 25%, 17%);
+      --text-muted: hsl(225, 23%, 24%);
+      --text-dim: hsl(226, 11%, 37%);
+      --color-acent-400: hsl(3, 77%, 44%);
+      --color-acent-500: hsl(3, 71%, 56%);
+      --color-neutral-100: hsl(200, 60%, 99%);
+      --color-neutral-200: hsl(217, 61%, 90%);
+      --color-neutral-300: hsl(0, 0%, 78%);
+    }
+  }
+
+  .dark {
+    --bg-from: hsl(227, 69%, 5%);
+    --bg-to: hsl(226, 75%, 14%);
+    --text-dark: hsl(200, 60%, 99%);
+    --text-muted: hsl(0, 0%, 93%);
+    --text-dim: hsl(0, 0%, 78%);
+    --color-acent-400: hsl(3, 86%, 64%);
+    --color-acent-500: hsl(3, 71%, 56%);
+    --color-hover: hsl(226, 11%, 37%);
+    --color-neutral-100: hsl(226, 25%, 17%);
+    --color-neutral-200: hsl(225, 23%, 24%);
+    --color-neutral-300: hsl(226, 11%, 37%);
+  }
 }
 
 @layer components {
-  .gradient-dark {
-    @apply bg-linear-to-r from-[#040816] to-[#09153e];
-  }
-  .gradient-light {
-    @apply bg-linear-to-r from-[hsl(215,74%,95%)] to-[hsl(185,48%,95%)];
+  .gradient-bg {
+    @apply bg-linear-to-b from-[var(--bg-from)] to-[var(--bg-to)];
   }
 }

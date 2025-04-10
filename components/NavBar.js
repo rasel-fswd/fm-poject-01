@@ -21,7 +21,7 @@ function NavBar() {
     if (resolvedTheme === 'dark')
       return (
         <button
-          className=" bg-neutral-100 hover:bg-neutral-300 dark:bg-neutral-700 dark:hover:bg-neutral-600 transition-colors p-2 rounded-lg cursor-pointer"
+          className=" bg-neutral-100 hover:bg-neutral-300 focus:bg-neutral-300  transition-colors p-2 rounded-lg cursor-pointer focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-100 focus:ring-[var(--color-acent-400)] outline-none"
           onClick={() => setTheme('light')}
         >
           <Image src={sunIcon} alt="Sun Icon" />
@@ -30,7 +30,7 @@ function NavBar() {
     if (resolvedTheme === 'light')
       return (
         <button
-          className=" bg-neutral-100 hover:bg-neutral-300 dark:bg-neutral-700 dark:hover:bg-neutral-600 transition-colors p-2 rounded-lg cursor-pointer"
+          className=" bg-neutral-100 hover:bg-neutral-300 focus:bg-neutral-300 transition-colors p-2 rounded-lg cursor-pointer focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-100 focus:ring-[var(--color-acent-400)] outline-none"
           onClick={() => setTheme('dark')}
         >
           <Image
@@ -43,7 +43,7 @@ function NavBar() {
   }
 
   return (
-    <nav className="bg-neutral-50 dark:bg-neutral-800 flex justify-between items-center p-4 rounded-2xl">
+    <nav className=" bg-neutral-100 flex justify-between items-center p-4 rounded-2xl">
       <Link href="/">
         {resolvedTheme === 'dark' ? (
           <Image src={logoLight} alt="Brand Logo" />

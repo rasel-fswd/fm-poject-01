@@ -102,21 +102,17 @@ function ExtensionList({ filter }) {
   if (filter === 'inactive') displayData = data.filter(ext => !ext.isActive);
 
   return (
-    <ul className=" text-neutral-700 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 font-normal mt-8">
+    <ul className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 font-normal mt-8">
       {displayData?.map(ext => (
         <li
           key={ext.name}
-          className=" flex flex-col justify-between p-5 bg-neutral-50 dark:bg-neutral-800 rounded-2xl border border-neutral-200 dark:border-neutral-600 shadow"
+          className=" flex flex-col justify-between p-5 bg-neutral-100 border border-neutral-200 rounded-2xl shadow"
         >
           <div className=" flex items-start gap-3 mb-8">
             <Image src={ext.logo} height={48} width={48} alt={ext.name} />
             <div>
-              <h2 className=" font-bold text-neutral-900 dark:text-neutral-100">
-                {ext.name}
-              </h2>
-              <p className="text-neutral-600 dark:text-neutral-300 mt-1">
-                {ext.description}
-              </p>
+              <h2 className="font-bold text-[var(--text-dark)]">{ext.name}</h2>
+              <p className="mt-1 text-[var(--text-dim)]">{ext.description}</p>
             </div>
           </div>
           <ExtensionAction isActive={ext.isActive} />

@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <body
         cz-shortcut-listen="true"
-        className={`${notoSans.className} antialiased min-h-screen px-4 lg:px-6 bg-linear-to-b from-[hsl(215,74%,95%)] to-[hsl(185,48%,95%)] dark:bg-linear-to-b dark:from-[#040816] dark:to-[#09153e]`}
+        className={`${notoSans.className} antialiased min-h-screen px-4 lg:px-6 gradient-bg`}
       >
         <ThemeProvider
           attribute="class"

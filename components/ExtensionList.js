@@ -110,6 +110,12 @@ const data = [
 
 let displayData;
 
+const cardVariant = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1, transition: { duration: 0.5 } },
+  exit: { opacity: 0 },
+};
+
 function ExtensionList({ filter }) {
   if (filter === 'all') displayData = data;
   if (filter === 'active') displayData = data.filter(ext => ext.isActive);
@@ -121,9 +127,10 @@ function ExtensionList({ filter }) {
         {displayData?.map(ext => (
           <motion.li
             layout
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            variants={cardVariant}
+            initial="initial"
+            animate="animate"
+            exit="exit"
             transition={{ duration: 0.5, ease: 'easeInOut' }}
             key={ext.id}
             className=" flex flex-col justify-between p-5 bg-neutral-100 border border-neutral-200 rounded-2xl shadow"

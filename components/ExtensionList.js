@@ -12,9 +12,12 @@ import linkChecker from '../public/logo-link-checker.svg';
 import domSnapShot from '../public/logo-dom-snapshot.svg';
 import consolePlus from '../public/logo-console-plus.svg';
 import ExtensionAction from './ExtensionAction';
+import * as motion from 'motion/react-client';
+import { AnimatePresence } from 'motion/react';
 
 const data = [
   {
+    id: 1,
     logo: devLens,
     name: 'DevLens',
     description:
@@ -22,18 +25,21 @@ const data = [
     isActive: true,
   },
   {
+    id: 2,
     logo: styleSky,
     name: 'StyleSpy',
     description: 'Instantly analyze and copy CSS from any webpage element.',
     isActive: true,
   },
   {
+    id: 3,
     logo: speedBoost,
     name: 'SpeedBoost',
     description: 'Optimizes browser resource usage to accelerate page loading.',
     isActive: false,
   },
   {
+    id: 4,
     logo: jsonWizard,
     name: 'JSONWizard',
     description:
@@ -41,12 +47,14 @@ const data = [
     isActive: true,
   },
   {
+    id: 5,
     logo: tabMaster,
     name: 'TabMaster Pro',
     description: 'Organizes browser tabs into groups and sessions.',
     isActive: true,
   },
   {
+    id: 6,
     logo: viewporBuddy,
     name: 'ViewportBuddy',
     description:
@@ -54,6 +62,7 @@ const data = [
     isActive: false,
   },
   {
+    id: 7,
     logo: markupNotes,
     name: 'Markup Notes',
     description:
@@ -61,6 +70,7 @@ const data = [
     isActive: true,
   },
   {
+    id: 8,
     logo: gridGuides,
     name: 'GridGuides',
     description:
@@ -68,24 +78,28 @@ const data = [
     isActive: false,
   },
   {
+    id: 9,
     logo: palletePicker,
     name: 'Palette Picker',
     description: 'Instantly extracts color palettes from any webpage.',
     isActive: true,
   },
   {
+    id: 10,
     logo: linkChecker,
     name: 'LinkChecker',
     description: 'Scans and highlights broken links on any page.',
     isActive: true,
   },
   {
+    id: 11,
     logo: domSnapShot,
     name: 'DOM Snapshot',
     description: 'Capture and export DOM structures quickly.',
     isActive: false,
   },
   {
+    id: 12,
     logo: consolePlus,
     name: 'ConsolePlus',
     description:
@@ -103,21 +117,30 @@ function ExtensionList({ filter }) {
 
   return (
     <ul className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 font-normal mt-8">
-      {displayData?.map(ext => (
-        <li
-          key={ext.name}
-          className=" flex flex-col justify-between p-5 bg-neutral-100 border border-neutral-200 rounded-2xl shadow"
-        >
-          <div className=" flex items-start gap-3 mb-8">
-            <Image src={ext.logo} height={48} width={48} alt={ext.name} />
-            <div>
-              <h2 className="font-bold text-[var(--text-dark)]">{ext.name}</h2>
-              <p className="mt-1 text-[var(--text-dim)]">{ext.description}</p>
+      <AnimatePresence>
+        {displayData?.map(ext => (
+          <motion.li
+            layout
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            key={ext.id}
+            className=" flex flex-col justify-between p-5 bg-neutral-100 border border-neutral-200 rounded-2xl shadow"
+          >
+            <div className=" flex items-start gap-3 mb-8">
+              <Image src={ext.logo} height={48} width={48} alt={ext.name} />
+              <div>
+                <h2 className="font-bold text-[var(--text-dark)]">
+                  {ext.name}
+                </h2>
+                <p className="mt-1 text-[var(--text-dim)]">{ext.description}</p>
+              </div>
             </div>
-          </div>
-          <ExtensionAction isActive={ext.isActive} />
-        </li>
-      ))}
+            <ExtensionAction isActive={ext.isActive} />
+          </motion.li>
+        ))}
+      </AnimatePresence>
     </ul>
   );
 }

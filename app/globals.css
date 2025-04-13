@@ -17,7 +17,6 @@
 } */
 
 @layer theme {
-
   @media (prefers-color-scheme: dark) {
     :root {
       --bg-from: hsl(215, 74%, 95%);

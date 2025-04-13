@@ -8,7 +8,7 @@ function ExtensionFiltler({ activeFilter }) {
 
   function handleFilter(filter) {
     const params = new URLSearchParams(searchParams);
-    params.set('list', filter);
+    params.set('filter', filter);
     router.replace(`?${params.toString()}`, { scroll: false });
   }
   return (

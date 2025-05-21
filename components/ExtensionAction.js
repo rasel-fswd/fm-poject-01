@@ -1,6 +1,6 @@
 'use client';
 
-import { act, useState } from 'react';
+import { useState } from 'react';
 
 function ExtensionAction({ isActive }) {
   const [active, setActive] = useState(false);
